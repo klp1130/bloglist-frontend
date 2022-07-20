@@ -34,7 +34,7 @@ const App = () => {
       }, 5000)
   }
 }
-
+  // 1 of 2 helper functions for generating forms
   const loginForm = () => (
     <form onSubmit={handleLogin}>
       <div>
@@ -43,16 +43,45 @@ const App = () => {
           type="text"
           value={username}
           name="Username"
+          onChange={( {target} ) => setUserName(target.value)}
+          />
+      </div>
+      <div>
+        password
+          <input
+          type="password"
+          value={password}
+          name="Password"
           onChange={( {target} ) => setPassword(target.value)}
           />
       </div>
       <button type='submit'>login</button>
     </form>
   )
+    // 2 of 2 helper functions for generating forms 
+    const blogForm = () => (
+      <form onSubmit={addBlog}>
+        <input
+          value={newBlog}
+          onChange={handleBlogChange}
+        />
+      </form>
+    )
+
 
   // implement a login function. token returned state in apps stater user
   return (
     <div>
+      <h1>blogs</h1>
+
+      {user === null ?
+        loginForm() :
+        <div>
+          <p>{user.name} logged-in</p>
+          {blogForm()}
+          </div>
+        }
+        
       <h2>blogs</h2>
 
       <form onSubmit={handleLogin}>
