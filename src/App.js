@@ -24,6 +24,8 @@ const App = () => {
       const user = await loginService.login({
         username, password,
       })
+
+      blogService.setToken(user.token)
       setUser(user)
       setUserName('')
       setPassword('')
@@ -81,7 +83,7 @@ const App = () => {
           {blogForm()}
           </div>
         }
-        
+
       <h2>blogs</h2>
 
       <form onSubmit={handleLogin}>
