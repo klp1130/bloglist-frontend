@@ -35,6 +35,21 @@ const App = () => {
   }
 }
 
+  const loginForm = () => (
+    <form onSubmit={handleLogin}>
+      <div>
+        username
+          <input
+          type="text"
+          value={username}
+          name="Username"
+          onChange={( {target} ) => setPassword(target.value)}
+          />
+      </div>
+      <button type='submit'>login</button>
+    </form>
+  )
+
   // implement a login function. token returned state in apps stater user
   return (
     <div>
