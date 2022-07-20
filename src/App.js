@@ -83,9 +83,7 @@ const App = () => {
           {blogForm()}
           </div>
         }
-
-      <h2>blogs</h2>
-
+        
       <form onSubmit={handleLogin}>
         <div>
           username
