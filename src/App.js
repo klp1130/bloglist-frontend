@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Blog from './components/Blog'
 import blogService from './services/blogs'
 import loginService from './services/login'
@@ -49,6 +49,10 @@ const App = () => {
     }
   }
 
+  const logout = () => {
+    window.localStorage.removeItem('loggedBloglistUser')
+    setUser(null)
+  }
 
   if (user === null) {
     return (
@@ -77,17 +81,20 @@ const App = () => {
         </form>
       </div>
     )
+  } else {
+    return (
+      <div>
+        <h1>blogs</h1>
+        <div>{user.name} is logged in</div>
+        <button onClick={logout}>logout</button>
+        <br></br>
+
+        <h1>create new</h1>
+        {blogs.map(blog =>
+          <Blog key={blog.id} blog={blog} />
+        )}
+      </div>
+    )
   }
-
-  // implement a login function. token returned state in apps stater user
-  return (
-    <div>
-      <h1>blogs</h1>
-      {blogs.map(blog =>
-        <Blog key={blog.id} blog={blog} />
-      )}
-    </div>
-  )
 }
-
 export default App
