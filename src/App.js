@@ -8,6 +8,7 @@ import BlogForm from './components/BlogForm'
 const App = () => {
   const [blogs, setBlogs] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
+  const [succsessMessage, setsuccessMessage] = useState('')
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
@@ -55,6 +56,8 @@ const App = () => {
     setUser(null)
   }
 
+  
+
   if (user === null) {
     return (
       <div>
@@ -91,17 +94,9 @@ const App = () => {
         <button onClick={logout}>logout</button>
         <br></br>
 
-<<<<<<< HEAD
         <h2>create new</h2>
-
+        <BlogForm createBlog={createBlog} />
         <h2>your blogs</h2>
-=======
-        <h1>create new</h1>
-        <BlogForm
-          createBlog={createBlog}
-        />
-
->>>>>>> 8e8767413b60a05dc06eec43b71f53c725ed2640
         {blogs.map(blog =>
           <Blog key={blog.id} blog={blog} />
         )}
