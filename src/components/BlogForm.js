@@ -26,9 +26,12 @@ const BlogForm = ({ createBlog }) => {
       author: author,
       url: url
     }
-    blogService.create(blogObject).then(returnedBlog =>
-      setBlogs(blogs.concat(returnedBlog))
-    )
+    blogService
+      .create(blogObject)
+      .then(returnedBlog =>
+        setBlogs(blogs.concat(returnedBlog))
+
+      )
     setTitle('')
     setAuthor('')
     setUrl('')
