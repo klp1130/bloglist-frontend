@@ -89,7 +89,9 @@ const App = () => {
         <button onClick={logout}>logout</button>
         <br></br>
 
-        <h1>create new</h1>
+        <h2>create new</h2>
+
+        <h2>your blogs</h2>
         {blogs.map(blog =>
           <Blog key={blog.id} blog={blog} />
         )}
