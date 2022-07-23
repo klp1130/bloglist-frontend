@@ -56,7 +56,7 @@ const App = () => {
     setUser(null)
   }
 
-  
+
 
   if (user === null) {
     return (
