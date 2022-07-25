@@ -19,7 +19,7 @@ const BlogForm = ({ createBlog }) => {
   }
 
 
-}
+
   const addBlog = (event) => {
     event.preventDefault()
     const blogObject = {
